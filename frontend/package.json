@@ -1,0 +1,39 @@
+{
+  "name": "fullstack-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "sirv public",
+    "validate": "svelte-check",
+    "watch:tailwind": "postcss public/tailwind.css -o public/index.css -w",
+    "build:tailwind": "NODE_ENV=production postcss public/tailwind.css -o public/index.css",
+    "dev": "run-p start:dev autobuild watch:tailwind",
+    "build": "npm run build:tailwind && rollup -c",
+    "autobuild": "rollup -c -w",
+    "start:dev": "sirv public --dev --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
+    "@tsconfig/svelte": "^1.0.0",
+    "postcss-cli": "^6.1.2",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^1.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3",
+    "npm-run-all": "^4.1.5"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.35",
+    "sirv-cli": "^1.0.0"
+  }
+}
